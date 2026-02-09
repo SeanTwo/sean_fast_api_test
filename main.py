@@ -1,6 +1,15 @@
-def main():
-    print("Hello from sean-example-repo!")
+from fastapi import FastAPI
 
+app = FastAPI()
 
-if __name__ == "__main__":
-    main()
+@app.get('/')
+def read_root():
+    return {'message': 'Hello World!'}
+
+@app.get('/health')
+def health_check():
+    return {'status' : 'healthy'}
+
+@app.get('add/{a}/{b}')
+def add_numbers(a: int, b: int):
+    return {'result' : a + b}
