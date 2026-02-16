@@ -10,6 +10,10 @@ def read_root():
 def health_check():
     return {'status' : 'healthy'}
 
-@app.get('add/{a}/{b}')
+@app.get('/add/{a}/{b}')
 def add_numbers(a: int, b: int):
     return {'result' : a + b}
+
+@app.get('/subtract/{a}/{b}')
+def subtract_numbers(a: int, b: int):
+    return {'result' : a - b}
